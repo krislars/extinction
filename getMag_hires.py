@@ -10,25 +10,25 @@ def getMag_hires(band,wavelength,flux):
     # NOTE: ugriz filters are on the AB magnitude system, UBVRIJHKs are on the Vega system
     
     if band=='Ks':
-        bandwav,bandpass=np.loadtxt('../DATA/filters/Ks_2MASS.txt',unpack=True)
+        bandwav,bandpass=np.loadtxt('filters/Ks_2MASS.txt',unpack=True)
         center=2.159        # micron
         F0=4.283E-10        # W m^-2 micron^-1
         dlambda=0.262
 
     elif band=='H':
-        bandwav,bandpass=np.loadtxt('../DATA/filters/H_2MASS.txt',unpack=True)
+        bandwav,bandpass=np.loadtxt('filters/H_2MASS.txt',unpack=True)
         center=1.662
         F0=1.133E-9
         dlambda=0.251
 
     elif band=='J':
-        bandwav,bandpass=np.loadtxt('../DATA/filters/J_2MASS.txt',unpack=True)
+        bandwav,bandpass=np.loadtxt('filters/J_2MASS.txt',unpack=True)
         center=1.235
         F0=3.129E-9
         dlambda=0.162
 
     elif band=='U':
-        bandwav_A,bandpass_100=np.loadtxt('../DATA/filters/Bessel_U.txt',unpack=True)
+        bandwav_A,bandpass_100=np.loadtxt('filters/Bessel_U.txt',unpack=True)
         bandwav=bandwav_A/1.0E3
         bandpass=bandpass_100/100.0
         center=0.360
@@ -36,7 +36,7 @@ def getMag_hires(band,wavelength,flux):
         dlambda=0.06
 
     elif band=='B':
-        bandwav_A,bandpass_100=np.loadtxt('../DATA/filters/Bessel_B.txt',unpack=True)
+        bandwav_A,bandpass_100=np.loadtxt('filters/Bessel_B.txt',unpack=True)
         bandwav=bandwav_A/1.0E3
         bandpass=bandpass_100/100.0
         center=0.438
@@ -44,7 +44,7 @@ def getMag_hires(band,wavelength,flux):
         dlambda=0.09
 
     elif band=='V':
-        bandwav_A,bandpass_100=np.loadtxt('../DATA/filters/Bessel_V.txt',unpack=True)
+        bandwav_A,bandpass_100=np.loadtxt('filters/Bessel_V.txt',unpack=True)
         bandwav=bandwav_A/1.0E3
         bandpass=bandpass_100/100.0
         center=0.545
@@ -52,7 +52,7 @@ def getMag_hires(band,wavelength,flux):
         dlambda=0.085
 
     elif band=='R':
-        bandwav_A,bandpass_100=np.loadtxt('../DATA/filters/Bessel_R.txt',unpack=True)
+        bandwav_A,bandpass_100=np.loadtxt('filters/Bessel_R.txt',unpack=True)
         bandwav=bandwav_A/1.0E3
         bandpass=bandpass_100/100.0
         center=0.641
@@ -60,7 +60,7 @@ def getMag_hires(band,wavelength,flux):
         dlambda=0.15
 
     elif band=='I':
-        bandwav_A,bandpass_100=np.loadtxt('../DATA/filters/Bessel_I.txt',unpack=True)
+        bandwav_A,bandpass_100=np.loadtxt('filters/Bessel_I.txt',unpack=True)
         bandwav=bandwav_A/1.0E3
         bandpass=bandpass_100/100.0
         center=0.798
