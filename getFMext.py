@@ -1,7 +1,7 @@
 def getFMext(wave,R,source):
     
     """ 
-        Input: wavelength in microns, nominal R = 3
+        Input: wavelength in microns, nominal R = 3.1
             source='f99' for Fitzpatrick 1999 or ='fmunred' for fmunred.pro
 
         Output: Al/EBV, so user must divide by R to get Al/AV
@@ -13,13 +13,21 @@ def getFMext(wave,R,source):
 
     x_anchors = 1.0E4 / np.array([np.inf, 26500., 12200., 6000., 5470., 4670., 4110.]) #microns
     
-    if source=="f99":
+    if source=="f99 tables": # Don't use, for demonstration only
         a26500= 0.265
         a12200= 0.829
         a6000 = -0.426 +1.0044*R
         a5470 = -0.050 +1.0016*R
         a4670 =  0.701 +1.0016*R
         a4110 =  1.208 +1.0032*R -0.00033*R**2.0 # typo in the paper -KAL
+    if source=="f99": # Don't use, for demonstration only
+        a26500= 0.265*R/3.1
+        a12200= 0.829*R/3.1
+        a6000 = -0.426 +1.0044*R
+        a5470 = -0.050 +1.0016*R
+        a4670 =  0.701 +1.0016*R
+        a4110 =  1.208 +1.0032*R -0.00033*R**2.0 # typo in the paper -KAL
+
     elif source=="fmunred":
         a26500= 0.26469*R/3.1    # R-dependent IR is the big change here -KAL
         a12200= 0.82925*R/3.1
